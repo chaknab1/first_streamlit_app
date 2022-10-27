@@ -13,5 +13,9 @@ streamlit.text('🥑🍞 Avocado Toast')
 
 streamlit.header('🍌🥭 Build Your Own Fruit Smoothie 🥝🍇')
 
+# read CSV file from S3 bucket
 my_fruit_list = pandas.read_csv("https://uni-lab-files.s3.us-west-2.amazonaws.com/dabw/fruit_macros.txt")
+# lets create a pick list to pick the required fruits 
+streamlit.multiselect("Pick some fruits : ", list(my_fruit_list.index))
+# display the items in the page
 streamlit.dataframe(my_fruit_list)
